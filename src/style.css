@@ -1,0 +1,53 @@
+@font-face 
+{
+    font-family: 'lulo_cleanoutline_bold';
+    src: url('lulocleanoutlinebold-webfont.woff2') format('woff2'), url('lulocleanoutlinebold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body
+{
+    
+    background-color: #aa96da;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
+}
+
+h1
+{
+    font-family: 'lulo_cleanoutline_bold';
+    font-size: 6vw;
+    color: #000;
+    text-align: center;
+}
+
+#word
+{
+    font-family: 'lulo_cleanoutline_bold';
+    font-size: 6vw;
+    color: white;
+    text-align: center;
+}
+
+
+.content
+{
+    text-align: center;
+}
+
+img
+{
+    max-width: 300px;
+    max-height: 300px;
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+}
+
+canvas, img
+{
+    display: none;
+}
