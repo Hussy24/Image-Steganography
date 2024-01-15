@@ -1,8 +1,4 @@
-# image-stego
-
-[![License](https://img.shields.io/github/license/FOSS-Cell-GECPKD/image-stego?style=for-the-badge)](https://github.com/FOSS-Cell-GECPKD/image-stego/blob/main/LICENSE)
-[![Issues](https://img.shields.io/github/issues/FOSS-Cell-GECPKD/image-stego?style=for-the-badge)](https://github.com/FOSS-Cell-GECPKD/image-stego/issues)
-[![Chat on Gitter](https://img.shields.io/badge/chat--on-gitter-brightgreen?style=for-the-badge&logo=appveyor)](https://gitter.im/FOSS-Cell-GECPKD/image-stego)
+# Image-Steganography
 
 ## About
 <br>
@@ -92,35 +88,5 @@ An Image Steganography (hiding/encoding information(text) in an image) web app.
 </code>
 </pre>
 <hr>
-<h3>Contributions</h3>
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated.
-To get this project, Follow the steps (It's Open and free :P )
-<p>
-<ul>1. Fork the Project
-<br> <br>
-2. Clone the project  <code>git clone https://github.com/yourrepo/image-stego.git</code>
-  <br>
-  After cloning, Setup the local machine with requirements 
-  <ul>
-    <li>Enter <b>npm i</b> to install the required modules</li>
-    <li>Enter <b>npm start</b> to run the project locally</li>
-  </ul>
-</p>
-3. Create your Feature Branch <code>git checkout -b feature/changedFeature</code>
-<br> <br>
-4. Commit your Changes <code>git commit -m 'Add some AmazingFeature'</code>
-<br> <br>
-5. Push to the Branch <code>git push origin feature/changedFeature</code>
-<br> <br>
-6. Open a Pull Request
- <br> <br>
-<img src="https://miro.medium.com/max/624/1*IelAxduwS_YtpsrlRe1d0Q.png">
-</p>
-<hr>
-
-## License
-Licensed under the [MIT License](LICENSE).
-
-This project was a part of FOSS OpenHack '20: https://openhack.gitbook.io/openhack-20/.
 
