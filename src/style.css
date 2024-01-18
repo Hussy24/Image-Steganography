@@ -9,7 +9,7 @@
 body
 {
     
-    background-color: #aa96da;
+    background-color: #0fdde4;
     justify-content: center;
     align-items: center;
     background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
@@ -18,15 +18,35 @@ body
 h1
 {
     font-family: 'lulo_cleanoutline_bold';
-    font-size: 6vw;
+    font-size: 4vw;
     color: #000;
     text-align: center;
 }
+h4
+{
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+h3
+{
+    font-family: 'lulo_cleanoutline_bold';
+    font-size: 30px;
+    color: #000;
+    
 
+}
+#word2
+{
+    font-family: 'lulo_cleanoutline_bold';
+    font-size: 30px;
+    color: white;
+
+}
 #word
 {
     font-family: 'lulo_cleanoutline_bold';
-    font-size: 6vw;
+    font-size: 4vw;
     color: white;
     text-align: center;
 }

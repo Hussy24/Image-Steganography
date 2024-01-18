@@ -1,3 +1,6 @@
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 let isImageUpload = false;
 
 // Loads input image to the Canvas for encoding or decoding
@@ -14,24 +17,50 @@ function loadImage(e) {
         ctx.canvas.width = img.width;
         ctx.canvas.height = img.height;
         ctx.drawImage(img, 0, 0);
-        alert("Image Uploaded Successfully")
-      }
+        Swal.fire({
+          title: 'Image Uploaded Successfully',
+          icon: 'success',
+          allowOutsideClick: false,
+        });
+            }
       img.src = dataUrl;
     } else {
       document.getElementById('upload-photo').value = '';
-      alert("Please upload an image!");
+           Swal.fire({
+          title: 'Please Upload An Image!',
+          icon: 'warning',
+          allowOutsideClick: false,
+        });
     }
   };
   reader.readAsDataURL(e.target.files[0]);
 };
+function resetImageUpload() {
+  isImageUpload = false;
+  document.getElementById('upload-photo').value = ''; // Clear the input file element
+  let ctx = document.getElementById('canvas').getContext('2d');
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear the canvas
+  document.getElementById('encoded-image').style.display = 'none'; // Hide the encoded image
+}
 
 // Encodes the secret message on the original and displays the encoded image
 function encode() {
   if (isImageUpload) {      //Checks if an image is uploaded  
     let message = document.getElementById('secret').value;
     if (message.length > 1000) {
-      alert("The message is too big to encode");
-    } else {
+      Swal.fire({
+        title: 'The Message is too big to encode!',
+        icon: 'warning',
+        allowOutsideClick: false,
+      });
+    }
+    else if(message.length===0)
+    { Swal.fire({
+      title: 'Please Enter a message to encode!',
+      icon: 'warning',
+      allowOutsideClick: false,
+    });}
+     else {
       document.getElementById('encoded-image').style.display = 'block';
       document.getElementById('secret').value = '';
       let output = document.getElementById('encoded-image');
@@ -40,22 +69,55 @@ function encode() {
       let imgData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
       encodeMessage(imgData.data, message);
       ctx.putImageData(imgData, 0, 0);
-      alert('Image encoded!\n Save below image for further use!');
+      Swal.fire({
+        title: 'Image encoded!',
+        text: 'Save below image for further use!',
+        icon: 'success',
+        allowOutsideClick: false,
+      });
       output.src = canvas.toDataURL();
     }
   } else {
     document.getElementById('upload-photo').value = '';
-    alert("Please upload an image!");
+    Swal.fire({
+      title: 'Please Upload An Image to Encode Message',
+      icon: 'warning',
+      allowOutsideClick: false,
+    });
   }
 };
 
 // Decodes the secret message from the canvas and alerts it to the user
 function decode() {
-  let ctx = document.getElementById('canvas').getContext('2d');
-  let imgData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
-  let message = decodeMessage(imgData.data);
-  alert("The message encode is:\n" + message);
-  return message
+  if (isImageUpload) {  // Checks if an image is uploaded
+    let ctx = document.getElementById('canvas').getContext('2d');
+    let imgData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
+    let message = decodeMessage(imgData.data);
+    if(!message)
+    {Swal.fire({
+      title: 'oops',
+      text: 'There is no message in this image.',
+      icon: 'info',
+      allowOutsideClick: false,
+    });
+    return ''
+  }
+    else{
+    Swal.fire({
+      title: 'Decoded Message',
+      text: 'The message encode is:\n' + message,
+      icon: 'info',
+      allowOutsideClick: false,
+    });
+    return message;}
+  } else {
+    Swal.fire({
+      title: 'Please Upload An Image To Decode',
+      icon: 'warning',
+      allowOutsideClick: false,
+    });
+    return '';  // Return an empty string or handle it as needed
+  }
 };
 
 // Encodes message using LSB method
@@ -149,4 +211,4 @@ function getNextLocation(history, total) {
   }
 };
 
-export { decode, encode, loadImage };
+export { decode, encode, loadImage, resetImageUpload };

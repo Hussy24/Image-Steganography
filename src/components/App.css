@@ -1,0 +1,18 @@
+
+/* Basic button styles */
+.content .button {
+  margin: 1rem;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #4cafaa;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect */
+.content .button:hover {
+  background-color: #027708;
+}
